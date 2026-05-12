@@ -73,7 +73,7 @@ export default function VoteCard() {
         </FormControl>
         <Box sx={{ marginTop: 4 }}>
           <Button type="submit" variant="contained">
-            Enviar
+            Votar
           </Button>
         </Box>
       </form>

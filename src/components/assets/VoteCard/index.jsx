@@ -11,10 +11,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addVote } from "../../context/voteSlice";
 
 export default function VoteCard() {
-  const [vote, setVote] = useState("");
+  const [vote, setVote] = useState(0);
   const [error, setError] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,8 +26,9 @@ export default function VoteCard() {
       setError(true);
       return;
     }
-
+    
     setError(false);
+    dispatch(addVote(vote))
   };
 
   return (
@@ -52,18 +56,18 @@ export default function VoteCard() {
             sx={{ marginTop: 3 }}
           >
             <FormControlLabel
-              value="JavaScript"
+              value={1}
               control={<Radio />}
               label="JavaScript"
             />
             <FormControlLabel
-              value="Python"
+              value={2}
               control={<Radio />}
               label="Python"
             />
-            <FormControlLabel value="Java" control={<Radio />} label="Java" />
-            <FormControlLabel value="C#" control={<Radio />} label="C#" />
-            <FormControlLabel value="C++" control={<Radio />} label="C++" />
+            <FormControlLabel value={3} control={<Radio />} label="Java" />
+            <FormControlLabel value={4} control={<Radio />} label="C#" />
+            <FormControlLabel value={5} control={<Radio />} label="C++" />
           </RadioGroup>
           {error && (
             <FormHelperText>

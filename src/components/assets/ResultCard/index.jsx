@@ -1,37 +1,31 @@
-import { Box, LinearProgress, Paper, Typography } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function ResultCard({ voteTitle, voteQuantity }) {
-    const totalVotes = useSelector((state) => state.votes.totalVotes);
+  const totalVotes = useSelector((state) => state.votes.totalVotes);
+  const percentage =
+    totalVotes === 0 ? 0 : Math.round((voteQuantity / totalVotes) * 100);
 
   return (
-    <Paper
-      elevation={4}
-      sx={{
-        width: "100%",
-        maxWidth: "400px",
-        margin: "0 auto",
-        padding: 4,
-        display: "flex",
-        flexDirection: "column",
-        gap: 4,
-      }}
-    >
-        <div>
-            <Typography sx={{ marginBottom: 2 }}>
-                {voteTitle}
-            </Typography>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Box sx={{ width: "100%", mr: 1}}>
-                    <LinearProgress variant="determinate" value={(voteQuantity / totalVotes) * 100} />
-                </Box>
-                <Box sx={{ minWidth: 35 }}>
-                    <Typography>
-                        {`${Math.round((voteQuantity / totalVotes) * 100)}%`}
-                    </Typography>
-                </Box>
-            </Box>
-        </div>
-    </Paper>
+    <Box sx={{ width: "100%", mb: 3 }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
+        <Typography variant="body1" fontWeight="500" color="text.secondary">
+          {voteTitle}
+        </Typography>
+        <Typography variant="body1" fontWeight="bold" color="primary">
+          {percentage}%
+        </Typography>
+      </Box>
+      <LinearProgress
+        variant="determinate"
+        value={percentage}
+        sx={{
+          height: 10,
+          borderRadius: 5,
+          backgroundColor: "#e2e8f0",
+          "& .MUILinearProgress-bar": { borderRadius: 5 },
+        }}
+      />
+    </Box>
   );
 }

@@ -5,7 +5,7 @@ import ResultPage from "./components/pages/ResultPage";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { voted } = useSelector((state) => state.votes.voted);
+  const voted  = useSelector((state) => state.votes.voted);
 
   return (
     <Container

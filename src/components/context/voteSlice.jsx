@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const voteSlice = createSlice({
-  name: "votes",
+  name: 'votes',
   initialState,
   reducers: {
     addVote: (state, action) => {

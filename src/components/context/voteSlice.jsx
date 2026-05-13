@@ -17,7 +17,8 @@ export const voteSlice = createSlice({
   initialState,
   reducers: {
     addVote: (state, action) => {
-      const option = state.options.find(c => c.id == action.payload);
+      const optionId = Number(action.payload);
+      const option = state.options.find(c => c.id === optionId);
 
       if (option) {
         option.numberOfVotes += 1;

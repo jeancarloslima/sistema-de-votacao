@@ -49,7 +49,7 @@ export default function VoteCard() {
         Qual é sua linguagem de programação favorita?
       </Typography>
       <form onSubmit={handleSubmit}>
-        <FormControl>
+        <FormControl error={error}>
           <FormLabel>Escolha uma das opções abaixo:</FormLabel>
           <RadioGroup
             value={vote}

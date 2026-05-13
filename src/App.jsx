@@ -16,7 +16,6 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <h1>Testi {voted ? "true" : "false"}</h1>
       {voted ? <ResultPage /> : <VoteCard />}
     </Container>
   );

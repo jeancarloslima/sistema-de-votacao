@@ -1,15 +1,25 @@
-import { Box, Typography } from "@mui/material";
+import { Box, List, ListItem, Typography } from "@mui/material";
 import ResultCard from "../../assets/ResultCard";
+import { useSelector } from "react-redux";
 
 export default function ResultPage() {
-    return (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            <Typography variant="h5" sx={{ textAlign: "center" }}>Resultado</Typography>
-            <ResultCard voteTitle={"Javascript"} voteQuantity={23} />
-            <ResultCard voteTitle={"Python"} voteQuantity={25} />
-            <ResultCard voteTitle={"Java"} voteQuantity={30} />
-            <ResultCard voteTitle={"C#"} voteQuantity={8} />
-            <ResultCard voteTitle={"C++"} voteQuantity={10} />
-        </Box>
-    )
+  const options = useSelector((state) => state.votes.options);
+
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+      <Typography variant="h5" sx={{ textAlign: "center" }}>
+        Resultado
+      </Typography>
+      <List>
+        {options.map((item) => (
+          <ListItem key={item.id}>
+            <ResultCard
+              voteTitle={item.name}
+              voteQuantity={item.numberOfVotes}
+            />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 }

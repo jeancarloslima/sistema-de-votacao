@@ -1,6 +1,9 @@
 import { Box, LinearProgress, Paper, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 export default function ResultCard({ voteTitle, voteQuantity }) {
+    const totalVotes = useSelector((state) => state.votes.totalVotes);
+
   return (
     <Paper
       elevation={4}
@@ -20,11 +23,11 @@ export default function ResultCard({ voteTitle, voteQuantity }) {
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Box sx={{ width: "100%", mr: 1}}>
-                    <LinearProgress variant="determinate" value={voteQuantity} />
+                    <LinearProgress variant="determinate" value={(voteQuantity / totalVotes) * 100} />
                 </Box>
                 <Box sx={{ minWidth: 35 }}>
                     <Typography>
-                        {`${Math.round(voteQuantity)}%`}
+                        {`${Math.round((voteQuantity / totalVotes) * 100)}%`}
                     </Typography>
                 </Box>
             </Box>

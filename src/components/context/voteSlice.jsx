@@ -2,12 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   options: [
-    { id: 1, name: "Javascript", numberOfVotes: 32 },
-    { id: 2, name: "Python", numberOfVotes: 25 },
-    { id: 3, name: "Java", numberOfVotes: 32 },
-    { id: 4, name: "C#", numberOfVotes: 12 },
-    { id: 5, name: "C++", numberOfVotes: 14 },
+    { id: 1, name: "Javascript", numberOfVotes: 8 },
+    { id: 2, name: "Python", numberOfVotes: 7 },
+    { id: 3, name: "Java", numberOfVotes: 8 },
+    { id: 4, name: "C#", numberOfVotes: 3 },
+    { id: 5, name: "C++", numberOfVotes: 5 },
   ],
+  totalVotes: 31,
   voted: false,
 };
 
@@ -20,6 +21,7 @@ export const voteSlice = createSlice({
 
       if (option) {
         option.numberOfVotes += 1;
+        state.totalVotes += 1;
         state.voted = true;
       }
     },

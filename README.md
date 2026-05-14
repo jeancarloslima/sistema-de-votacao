@@ -2,6 +2,8 @@
 
 Uma aplicação de página única (SPA) desenvolvida para praticar arquiteturas de estado global e bibliotecas de componentes.
 
+<img width="811" height="756" alt="sistema-de-votacao-print" src="https://github.com/user-attachments/assets/571fde0f-8998-428c-9d61-9a9e9d64910a" />
+
 ## 🚀 Sobre o Projeto
 
 Este projeto é um sistema de enquetes interativo onde os utilizadores podem votar na sua linguagem de programação favorita. A aplicação transita fluidamente entre o modo de votação e o painel de resultados, calculando e exibindo as percentagens de votos em tempo real através de barras de progresso animadas.
@@ -27,7 +29,7 @@ Este projeto é um sistema de enquetes interativo onde os utilizadores podem vot
 
 1. Clone o repositório:
 `git clone https://github.com/jeancarloslima/sistema-de-votacao.git`
-2. Aceda à pasta do projeto:
+2. Acesse à pasta do projeto:
 `cd sistema-de-votacao`
 3. Instale as dependências:
 `npm install`
